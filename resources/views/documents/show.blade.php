@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('page_title', 'Detail Dokumen')
+<!-- Assalamualaikum baraya pasundan -->
 
 @section('content')
 <div class="row g-4">

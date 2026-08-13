@@ -218,7 +218,7 @@
         </div>
 
         <footer class="bg-white border-top py-3 text-center text-muted small">
-            &copy; 2026 E-Arsip Perusahaan &bull; Sistem Manajemen Dokumen Digital Terintegrasi.
+            &copy; 2026 E-Arsip &bull; Sistem Manajemen Dokumen Digital Terintegrasi.
         </footer>
     </div>
 

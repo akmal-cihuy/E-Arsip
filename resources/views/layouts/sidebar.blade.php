@@ -1,7 +1,6 @@
 <nav id="sidebar">
     <div class="sidebar-brand">
-        <i class="bi bi-archive-fill"></i>
-        <span>E-ARSIP</span>
+        <img src="{{asset('image/logo2.png')}}" alt="logo" class="mb-2" style="width: 180px; height: auto;">
     </div>
     <ul class="sidebar-nav">
         <li class="nav-item">

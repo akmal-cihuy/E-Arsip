@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Document extends Model {
     protected $fillable = [
-        'category_id', 'folder_id', 'user_id', 'name', 'document_number',
+        'category_id', 'folder_id', 'user_id', 'name',
         'file_name', 'file_path', 'file_type', 'file_size', 'document_date',
         'description', 'status', 'download_count'
     ];

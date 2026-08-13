@@ -45,7 +45,7 @@ class DatabaseSeeder extends Seeder {
         }
 
         // 3. Folder Direktori
-        $folders = ['📁 Keuangan', '📁 HRD', '📁 Legal', '📁 Marketing', '📁 Operasional'];
+        $folders = ['Keuangan', 'HRD', 'Legal', 'Marketing', 'Operasional'];
         $folderModels = [];
         foreach ($folders as $folderName) {
             $folderModels[] = Folder::create([

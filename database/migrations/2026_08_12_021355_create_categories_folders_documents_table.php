@@ -29,7 +29,6 @@ return new class extends Migration {
             $table->foreignId('folder_id')->nullable()->constrained('folders')->nullOnDelete();
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
             $table->string('name');
-            $table->string('document_number')->unique();
             $table->string('file_name');
             $table->string('file_path');
             $table->string('file_type', 10);

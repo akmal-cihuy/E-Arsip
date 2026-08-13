@@ -19,7 +19,6 @@ class DocumentController extends Controller {
             $search = $request->search;
             $query->where(function ($q) use ($search) {
                 $q->where('name', 'like', "%{$search}%")
-                  ->orWhere('document_number', 'like', "%{$search}%")
                   ->orWhere('file_name', 'like', "%{$search}%");
             });
         }
@@ -52,7 +51,6 @@ class DocumentController extends Controller {
     public function store(Request $request) {
         $request->validate([
             'name' => 'required|string|max:255',
-            'document_number' => 'required|string|max:100|unique:documents,document_number',
             'category_id' => 'required|exists:categories,id',
             'folder_id' => 'nullable|exists:folders,id',
             'document_date' => 'required|date',
@@ -68,7 +66,6 @@ class DocumentController extends Controller {
 
         $doc = Document::create([
             'name' => $request->name,
-            'document_number' => $request->document_number,
             'category_id' => $request->category_id,
             'folder_id' => $request->folder_id,
             'user_id' => Auth::id(),

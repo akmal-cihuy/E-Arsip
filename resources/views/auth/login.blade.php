@@ -20,7 +20,7 @@
         <div class="card login-card mx-auto bg-white p-4 p-md-5">
             <div class="text-center mb-4">
                 <div class="d-inline-flex align-items-center justify-content-center " >
-                    <img src="{{asset('storage/foto/logo1.png')}}" alt="logo" class="mb-2" style="width: 350px; height: auto;">
+                    <img src="{{asset('public/image/logo1.png')}}" alt="logo" class="mb-2" style="width: 350px; height: auto;">
                 </div>
             </div>
 

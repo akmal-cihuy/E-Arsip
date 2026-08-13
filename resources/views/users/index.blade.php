@@ -16,7 +16,7 @@
     <!-- Filter Form -->
     <form action="{{ route('users.index') }}" method="GET" class="row g-2 mb-3">
         <div class="col-md-4">
-            <input type="text" name="search" class="form-control form-control-sm" placeholder="Cari nama, email, NIP, divisi..." value="{{ request('search') }}">
+            <input type="text" name="search" class="form-control form-control-sm" placeholder="Cari nama, email" value="{{ request('search') }}">
         </div>
         <div class="col-md-3">
             <select name="role" class="form-select form-select-sm">
@@ -36,8 +36,6 @@
                 <tr>
                     <th>Nama</th>
                     <th>Email</th>
-                    <th>NIP / Identitas</th>
-                    <th>Departemen & Jabatan</th>
                     <th>Role</th>
                     <th>Status</th>
                     <th class="text-center">Aksi</th>

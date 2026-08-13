@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('page_title', 'Daftar Dokumen')
+@section('page_title', 'Daftar File')
 
 @section('content')
 <div class="card card-custom p-4 mb-4">
@@ -7,7 +7,7 @@
     <form action="{{ route('documents.index') }}" method="GET" class="row g-2 align-items-end mb-3">
         <div class="col-md-3">
             <label class="small fw-semibold">Pencarian</label>
-            <input type="text" name="search" class="form-control form-control-sm" placeholder="Nama, No. Surat, File..." value="{{ request('search') }}">
+            <input type="text" name="search" class="form-control form-control-sm" placeholder="Nama File..." value="{{ request('search') }}">
         </div>
         <div class="col-md-3">
             <label class="small fw-semibold">Kategori</label>
@@ -40,12 +40,11 @@
                 <thead class="table-light small">
                     <tr>
                         <th>No</th>
-                        <th>Nama Dokumen</th>
+                        <th>Nama File</th>
                         <th>Kategori</th>
                         <th>Folder</th>
                         <th>Ukuran</th>
-                        <th>Uploader</th>
-                        <th>Tgl Dokumen</th>
+                        <th>Tgl File</th>
                         <th class="text-center">Aksi</th>
                     </tr>
                 </thead>
@@ -60,7 +59,6 @@
                             <td><span class="badge badge-orange">{{ $doc->category->name }}</span></td>
                             <td><i class="bi bi-folder-fill text-warning me-1"></i> {{ $doc->folder->name ?? 'Root' }}</td>
                             <td>{{ $doc->formatted_size }}</td>
-                            <td>{{ $doc->user->name }}</td>
                             <td>{{ $doc->document_date->format('d/m/Y') }}</td>
                             <td class="text-center">
                                 <div class="btn-group btn-group-sm">
@@ -75,7 +73,7 @@
                                         <div class="modal-content">
                                             <div class="modal-body text-center p-4">
                                                 <i class="bi bi-exclamation-triangle text-danger display-4 mb-3"></i>
-                                                <h6>Hapus Dokumen?</h6>
+                                                <h6>Hapus File?</h6>
                                                 <p class="text-muted small">File <strong>{{ $doc->name }}</strong> akan dihapus permanen.</p>
                                                 <div class="d-flex justify-content-center gap-2 mt-3">
                                                     <button type="button" class="btn btn-light btn-sm" data-bs-dismiss="modal">Batal</button>
@@ -105,10 +103,10 @@
             <div class="d-inline-flex align-items-center justify-content-center p-4 rounded-circle mb-3" style="background-color: var(--primary-orange-light); color: var(--primary-orange);">
                 <i class="bi bi-folder-x fs-1"></i>
             </div>
-            <h5 class="fw-bold">Belum ada dokumen</h5>
+            <h5 class="fw-bold">Belum ada file</h5>
             <p class="text-muted small">Tidak ada data arsip yang sesuai dengan kriteria filter Anda.</p>
             <a href="{{ route('documents.create') }}" class="btn btn-orange btn-sm mt-2">
-                <i class="bi bi-cloud-arrow-up me-1"></i> Upload Dokumen
+                <i class="bi bi-cloud-arrow-up me-1"></i> Upload File
             </a>
         </div>
     @endif

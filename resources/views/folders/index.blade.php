@@ -6,7 +6,7 @@
     <div class="d-flex justify-content-between align-items-center mb-4">
         <div>
             <h5 class="fw-bold mb-1">Folder Arsip Perusahaan</h5>
-            <p class="text-muted small mb-0">Kelola hierarki dan struktur direktori pengarsipan dokumen.</p>
+            <p class="text-muted small mb-0">Kelola hierarki dan struktur direktori pengarsipan file.</p>
         </div>
         <button class="btn btn-orange btn-sm" data-bs-toggle="modal" data-bs-target="#createFolderModal">
             <i class="bi bi-folder-plus me-1"></i> Buat Folder Baru
@@ -43,7 +43,7 @@
                     </a>
                     <p class="text-muted small mb-2 text-truncate">{{ $folder->description ?? 'Tidak ada deskripsi' }}</p>
                     <div class="d-flex justify-content-between align-items-center mt-auto pt-2 border-top small text-muted">
-                        <span><i class="bi bi-file-earmark me-1"></i> {{ $folder->documents_count }} Dokumen</span>
+                        <span><i class="bi bi-file-earmark me-1"></i> {{ $folder->documents_count }} File</span>
                         <span><i class="bi bi-folder2-open me-1"></i> {{ $folder->subfolders->count() }} Sub</span>
                     </div>
                 </div>

@@ -12,7 +12,7 @@
         <li class="nav-item">
             <a href="{{ route('documents.index') }}" class="nav-link {{ request()->routeIs('documents.*') ? 'active' : '' }}">
                 <i class="bi bi-file-earmark-text-fill"></i>
-                <span>Dokumen</span>
+                <span>File</span>
             </a>
         </li>
         <li class="nav-item">
@@ -30,13 +30,13 @@
         <li class="nav-item">
             <a href="{{ route('documents.create') }}" class="nav-link">
                 <i class="bi bi-cloud-arrow-up-fill"></i>
-                <span>Upload Dokumen</span>
+                <span>Upload File</span>
             </a>
         </li>
 
         <li class="nav-divider my-3 border-top"></li>
 
-        <li class="nav-item">
+        {{-- <li class="nav-item">
             <a href="{{ route('reports.index') }}" class="nav-link {{ request()->routeIs('reports.*') ? 'active' : '' }}">
                 <i class="bi bi-bar-chart-fill"></i>
                 <span>Laporan</span>
@@ -58,12 +58,12 @@
                     <span>Manajemen User</span>
                 </a>
             </li>
-        @endif
+        @endif --}}
 
         <li class="nav-item mt-4">
             <form action="{{ route('logout') }}" method="POST">
                 @csrf
-                <button type="submit" class="nav-link text-danger w-100 border-0 bg-transparent text-start">
+                <button type="submit"  class="nav-link text-danger w-100 border-0 bg-transparent text-start">
                     <i class="bi bi-box-arrow-right"></i>
                     <span>Keluar</span>
                 </button>

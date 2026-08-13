@@ -11,7 +11,7 @@
     <div class="text-center p-4">
         <h1 class="display-1 fw-bold" style="color: #FF6B00;">404</h1>
         <h4 class="fw-bold mb-2">Halaman Tidak Ditemukan</h4>
-        <p class="text-muted">Dokumen atau tautan yang Anda tuju telah dipindahkan atau dihapus.</p>
+        <p class="text-muted">File atau tautan yang Anda tuju telah dipindahkan atau dihapus.</p>
         <a href="{{ route('dashboard') }}" class="btn text-white mt-3" style="background-color: #FF6B00;">Kembali ke Dashboard</a>
     </div>
 </body>

@@ -27,7 +27,7 @@
 <div class="card card-custom p-4 mb-4">
     <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-4">
         <div>
-            <h5 class="fw-bold mb-1">Filter Laporan Dokumen</h5>
+            <h5 class="fw-bold mb-1">Filter Laporan File</h5>
             <p class="text-muted small mb-0">Sesuaikan rentang tanggal dan klasifikasi data arsip.</p>
         </div>
         <div class="d-flex gap-2">
@@ -77,8 +77,8 @@
         <table class="table table-hover align-middle mb-3 small">
             <thead class="table-light">
                 <tr>
-                    <th>No. Dokumen</th>
-                    <th>Nama Dokumen</th>
+                    <th>No. File</th>
+                    <th>Nama File</th>
                     <th>Kategori</th>
                     <th>Folder</th>
                     <th>Uploader</th>

@@ -6,7 +6,7 @@
     <div class="d-flex justify-content-between align-items-center mb-4">
         <div>
             <h5 class="fw-bold mb-1">Daftar Kategori Arsip</h5>
-            <p class="text-muted small mb-0">Klasifikasikan tipe dokumen perusahaan.</p>
+            <p class="text-muted small mb-0">Klasifikasikan tipe file.</p>
         </div>
         <button class="btn btn-orange btn-sm" data-bs-toggle="modal" data-bs-target="#createCatModal">
             <i class="bi bi-plus-circle me-1"></i> Tambah Kategori
@@ -19,9 +19,8 @@
                 <tr>
                     <th>No</th>
                     <th>Nama Kategori</th>
-                    <th>Slug</th>
                     <th>Deskripsi</th>
-                    <th>Total Dokumen</th>
+                    <th>Total File</th>
                     <th class="text-center">Aksi</th>
                 </tr>
             </thead>
@@ -30,9 +29,8 @@
                     <tr>
                         <td>{{ $categories->firstItem() + $idx }}</td>
                         <td class="fw-bold">{{ $cat->name }}</td>
-                        <td class="text-muted"><code>{{ $cat->slug }}</code></td>
                         <td>{{ $cat->description ?? '-' }}</td>
-                        <td><span class="badge badge-orange">{{ $cat->documents_count }} Dokumen</span></td>
+                        <td><span class="badge badge-orange">{{ $cat->documents_count }} File</span></td>
                         <td class="text-center">
                             <button class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#editCatModal{{ $cat->id }}"><i class="bi bi-pencil"></i></button>
                             <form action="{{ route('categories.destroy', $cat->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Hapus kategori ini?')">

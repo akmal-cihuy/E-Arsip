@@ -36,18 +36,6 @@
                 </select>
             </div>
             <div class="col-md-6">
-                <label class="form-label small fw-semibold">Departemen / Divisi</label>
-                <input type="text" name="department" class="form-control" placeholder="Contoh: Keuangan" value="{{ old('department') }}">
-            </div>
-            <div class="col-md-6">
-                <label class="form-label small fw-semibold">Jabatan</label>
-                <input type="text" name="position" class="form-control" placeholder="Contoh: Staff Pajak" value="{{ old('position') }}">
-            </div>
-            <div class="col-md-6">
-                <label class="form-label small fw-semibold">Nomor Telepon</label>
-                <input type="text" name="phone" class="form-control" value="{{ old('phone') }}">
-            </div>
-            <div class="col-md-6">
                 <label class="form-label small fw-semibold">Password Sementara <span class="text-danger">*</span></label>
                 <input type="password" name="password" class="form-control" required>
             </div>

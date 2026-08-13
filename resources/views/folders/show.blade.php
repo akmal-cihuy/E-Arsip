@@ -37,7 +37,7 @@
                             <i class="bi bi-folder-fill text-warning fs-4"></i>
                             <span class="text-truncate">{{ $sub->name }}</span>
                         </a>
-                        <span class="text-muted small mt-2">{{ $sub->documents_count }} Dokumen</span>
+                        <span class="text-muted small mt-2">{{ $sub->documents_count }} File</span>
                     </div>
                 </div>
             @endforeach
@@ -45,13 +45,13 @@
     @endif
 
     <!-- Documents Inside Folder -->
-    <h6 class="fw-bold text-muted small text-uppercase mb-3">Berkas Dokumen</h6>
+    <h6 class="fw-bold text-muted small text-uppercase mb-3">Berkas File</h6>
     @if($documents->count() > 0)
         <div class="table-responsive">
             <table class="table table-hover align-middle mb-3 small">
                 <thead class="table-light">
                     <tr>
-                        <th>Nama Dokumen</th>
+                        <th>Nama File</th>
                         <th>Kategori</th>
                         <th>Ukuran</th>
                         <th>Uploader</th>
@@ -78,7 +78,7 @@
     @else
         <div class="text-center py-4 text-muted small">
             <i class="bi bi-inbox fs-2 mb-2"></i>
-            <div>Belum ada dokumen di dalam folder ini.</div>
+            <div>Belum ada file di dalam folder ini.</div>
         </div>
     @endif
 </div>

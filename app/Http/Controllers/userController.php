@@ -65,7 +65,7 @@ class UserController extends Controller {
             'password' => ['nullable', Password::defaults()],
         ]);
 
-        $data = $request->only('name', 'email', 'role', 'identity_number', 'position', 'department', 'phone');
+        $data = $request->only('name', 'email', 'role');
         if ($request->filled('password')) {
             $data['password'] = Hash::make($request->password);
         }

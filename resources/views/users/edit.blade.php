@@ -26,27 +26,11 @@
                 <input type="email" name="email" class="form-control" value="{{ old('email', $user->email) }}" required>
             </div>
             <div class="col-md-6">
-                <label class="form-label small fw-semibold">Nomor Identitas / NIP</label>
-                <input type="text" name="identity_number" class="form-control" value="{{ old('identity_number', $user->identity_number) }}">
-            </div>
-            <div class="col-md-6">
                 <label class="form-label small fw-semibold">Role Pengguna</label>
                 <select name="role" class="form-select" required>
                     <option value="petugas" {{ old('role', $user->role) == 'petugas' ? 'selected' : '' }}>Petugas</option>
                     <option value="admin" {{ old('role', $user->role) == 'admin' ? 'selected' : '' }}>Admin</option>
                 </select>
-            </div>
-            <div class="col-md-6">
-                <label class="form-label small fw-semibold">Departemen</label>
-                <input type="text" name="department" class="form-control" value="{{ old('department', $user->department) }}">
-            </div>
-            <div class="col-md-6">
-                <label class="form-label small fw-semibold">Jabatan</label>
-                <input type="text" name="position" class="form-control" value="{{ old('position', $user->position) }}">
-            </div>
-            <div class="col-md-6">
-                <label class="form-label small fw-semibold">Nomor Telepon</label>
-                <input type="text" name="phone" class="form-control" value="{{ old('phone', $user->phone) }}">
             </div>
             <div class="col-md-6">
                 <label class="form-label small fw-semibold">Reset Password (Kosongkan jika tidak diganti)</label>

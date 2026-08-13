@@ -1,10 +1,10 @@
 @extends('layouts.app')
-@section('page_title', 'Edit Dokumen')
+@section('page_title', 'Edit File')
 
 @section('content')
 <div class="card card-custom p-4 mx-auto" style="max-width: 800px;">
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h5 class="fw-bold mb-0">Edit Metadata Dokumen</h5>
+        <h5 class="fw-bold mb-0">Edit Metadata File</h5>
         <a href="{{ route('documents.show', $document->id) }}" class="btn btn-sm btn-light"><i class="bi bi-arrow-left me-1"></i> Kembali</a>
     </div>
 
@@ -21,7 +21,7 @@
         @method('PUT')
         <div class="row g-3">
             <div class="col-md-6">
-                <label class="form-label small fw-semibold">Nama Dokumen</label>
+                <label class="form-label small fw-semibold">Nama File</label>
                 <input type="text" name="name" class="form-control" value="{{ old('name', $document->name) }}" required>
             </div>
             <div class="col-md-4">
@@ -42,7 +42,7 @@
                 </select>
             </div>
             <div class="col-md-4">
-                <label class="form-label small fw-semibold">Status Dokumen</label>
+                <label class="form-label small fw-semibold">Status File</label>
                 <select name="status" class="form-select" required>
                     <option value="aktif" {{ old('status', $document->status) == 'aktif' ? 'selected' : '' }}>Aktif</option>
                     <option value="rahasia" {{ old('status', $document->status) == 'rahasia' ? 'selected' : '' }}>Rahasia</option>
@@ -50,7 +50,7 @@
                 </select>
             </div>
             <div class="col-md-6">
-                <label class="form-label small fw-semibold">Tanggal Dokumen</label>
+                <label class="form-label small fw-semibold">Tanggal File</label>
                 <input type="date" name="document_date" class="form-control" value="{{ old('document_date', $document->document_date->format('Y-m-d')) }}" required>
             </div>
             <div class="col-md-6">

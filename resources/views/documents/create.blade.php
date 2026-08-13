@@ -1,9 +1,9 @@
 @extends('layouts.app')
-@section('page_title', 'Upload Dokumen Baru')
+@section('page_title', 'Upload File Baru')
 
 @section('content')
 <div class="card card-custom p-4 mx-auto" style="max-width: 800px;">
-    <h5 class="fw-bold mb-4">Formulir Pengarsipan Dokumen</h5>
+    <h5 class="fw-bold mb-4">Formulir Pengarsipan File</h5>
 
     @if($errors->any())
         <div class="alert alert-danger py-2 small">
@@ -16,13 +16,9 @@
     <form action="{{ route('documents.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="row g-3">
-            <div class="col-md-6">
-                <label class="form-label small fw-semibold">Nama Dokumen <span class="text-danger">*</span></label>
+            <div class="col-md-12">
+                <label class="form-label small fw-semibold">Nama File <span class="text-danger">*</span></label>
                 <input type="text" name="name" class="form-control" placeholder="Contoh: Kontrak Kerjasama Vendor" value="{{ old('name') }}" required>
-            </div>
-            <div class="col-md-6">
-                <label class="form-label small fw-semibold">Nomor Surat/Dokumen <span class="text-danger">*</span></label>
-                <input type="text" name="document_number" class="form-control" placeholder="Contoh: 045/DIR-PK/VIII/2026" value="{{ old('document_number') }}" required>
             </div>
             <div class="col-md-4">
                 <label class="form-label small fw-semibold">Kategori <span class="text-danger">*</span></label>
@@ -43,7 +39,7 @@
                 </select>
             </div>
             <div class="col-md-4">
-                <label class="form-label small fw-semibold">Status Dokumen <span class="text-danger">*</span></label>
+                <label class="form-label small fw-semibold">Status File <span class="text-danger">*</span></label>
                 <select name="status" class="form-select" required>
                     <option value="aktif">Aktif</option>
                     <option value="rahasia">Rahasia</option>
@@ -51,7 +47,7 @@
                 </select>
             </div>
             <div class="col-md-6">
-                <label class="form-label small fw-semibold">Tanggal Dokumen <span class="text-danger">*</span></label>
+                <label class="form-label small fw-semibold">Tanggal File <span class="text-danger">*</span></label>
                 <input type="date" name="document_date" class="form-control" value="{{ old('document_date', date('Y-m-d')) }}" required>
             </div>
             <div class="col-md-6">
@@ -64,7 +60,7 @@
             </div>
             <div class="col-12 mt-4 text-end">
                 <a href="{{ route('documents.index') }}" class="btn btn-light me-2">Batal</a>
-                <button type="submit" class="btn btn-orange">Simpan Dokumen</button>
+                <button type="submit" class="btn btn-orange">Simpan File</button>
             </div>
         </div>
     </form>

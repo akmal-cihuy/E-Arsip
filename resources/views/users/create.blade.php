@@ -21,12 +21,8 @@
                 <input type="text" name="name" class="form-control" value="{{ old('name') }}" required>
             </div>
             <div class="col-md-6">
-                <label class="form-label small fw-semibold">Email Perusahaan <span class="text-danger">*</span></label>
+                <label class="form-label small fw-semibold">Email <span class="text-danger">*</span></label>
                 <input type="email" name="email" class="form-control" value="{{ old('email') }}" required>
-            </div>
-            <div class="col-md-6">
-                <label class="form-label small fw-semibold">Nomor Identitas / NIP</label>
-                <input type="text" name="identity_number" class="form-control" value="{{ old('identity_number') }}">
             </div>
             <div class="col-md-6">
                 <label class="form-label small fw-semibold">Role Pengguna <span class="text-danger">*</span></label>

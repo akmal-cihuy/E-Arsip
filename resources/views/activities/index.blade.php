@@ -5,7 +5,7 @@
 <div class="card card-custom p-4 mb-4">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <div>
-            <h5 class="fw-bold mb-1">Audit Trail & Log Aktivitas</h5>
+            <h5 class="fw-bold mb-1">Log Aktivitas</h5>
             <p class="text-muted small mb-0">Catatan jejak rekam akses pengguna, unduhan, dan pengunggahan berkas.</p>
         </div>
     </div>
@@ -40,7 +40,6 @@
                     <th>Nama Pengguna</th>
                     <th>Aktivitas</th>
                     <th>Detail Keterangan</th>
-                    <th>IP Address</th>
                 </tr>
             </thead>
             <tbody>
@@ -55,7 +54,6 @@
                                 <a href="{{ route('documents.show', $log->document->id) }}" class="text-decoration-none small text-primary">Lihat Terkait</a>
                             @endif
                         </td>
-                        <td><code>{{ $log->ip_address }}</code></td>
                     </tr>
                 @empty
                     <tr><td colspan="5" class="text-center py-4 text-muted">Belum ada riwayat aktivitas tercatat.</td></tr>

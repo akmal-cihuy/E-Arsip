@@ -10,15 +10,15 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="{{ route('documents.index') }}" class="nav-link {{ request()->routeIs('documents.*') ? 'active' : '' }}">
-                <i class="bi bi-file-earmark-text-fill"></i>
-                <span>File</span>
-            </a>
-        </li>
-        <li class="nav-item">
             <a href="{{ route('folders.index') }}" class="nav-link {{ request()->routeIs('folders.*') ? 'active' : '' }}">
                 <i class="bi bi-folder-fill"></i>
                 <span>Folder</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="{{ route('documents.index') }}" class="nav-link {{ request()->routeIs('documents.*') ? 'active' : '' }}">
+                <i class="bi bi-file-earmark-text-fill"></i>
+                <span>File</span>
             </a>
         </li>
         <li class="nav-item">
@@ -35,13 +35,7 @@
         </li>
 
         <li class="nav-divider my-3 border-top"></li>
-
-        {{-- <li class="nav-item">
-            <a href="{{ route('reports.index') }}" class="nav-link {{ request()->routeIs('reports.*') ? 'active' : '' }}">
-                <i class="bi bi-bar-chart-fill"></i>
-                <span>Laporan</span>
-            </a>
-        </li>
+        
         <li class="nav-item">
             <a href="{{ route('activities.index') }}" class="nav-link {{ request()->routeIs('activities.*') ? 'active' : '' }}">
                 <i class="bi bi-clock-history"></i>
@@ -58,7 +52,7 @@
                     <span>Manajemen User</span>
                 </a>
             </li>
-        @endif --}}
+        @endif
 
         <li class="nav-item mt-4">
             <form action="{{ route('logout') }}" method="POST">

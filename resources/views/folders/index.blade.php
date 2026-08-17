@@ -5,7 +5,7 @@
 <div class="card card-custom p-4 mb-4">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <div>
-            <h5 class="fw-bold mb-1">Folder Arsip Perusahaan</h5>
+            <h5 class="fw-bold mb-1">Folder Arsip</h5>
             <p class="text-muted small mb-0">Kelola hierarki dan struktur direktori pengarsipan file.</p>
         </div>
         <button class="btn btn-orange btn-sm" data-bs-toggle="modal" data-bs-target="#createFolderModal">

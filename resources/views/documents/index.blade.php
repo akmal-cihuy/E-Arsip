@@ -54,7 +54,6 @@
                             <td>{{ $documents->firstItem() + $index }}</td>
                             <td>
                                 <a href="{{ route('documents.show', $doc->id) }}" class="fw-bold text-dark text-decoration-none">{{ $doc->name }}</a>
-                                <div class="text-muted" style="font-size: 0.75rem;">No: {{ $doc->document_number }}</div>
                             </td>
                             <td><span class="badge badge-orange">{{ $doc->category->name }}</span></td>
                             <td><i class="bi bi-folder-fill text-warning me-1"></i> {{ $doc->folder->name ?? 'Root' }}</td>

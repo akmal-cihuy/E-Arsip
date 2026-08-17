@@ -17,7 +17,7 @@
     <!-- Filter Form -->
     <form action="{{ route('users.index') }}" method="GET" class="row g-2 mb-4">
         <div class="col-md-4">
-            <input type="text" name="search" class="form-control form-control-sm" placeholder="Cari nama, email, NIP, atau divisi..." value="{{ request('search') }}">
+            <input type="text" name="search" class="form-control form-control-sm" placeholder="Cari nama atau email" value="{{ request('search') }}">
         </div>
         <div class="col-md-3">
             <select name="role" class="form-select form-select-sm">
@@ -40,8 +40,6 @@
                 <tr>
                     <th>Nama Pengguna</th>
                     <th>Email</th>
-                    <th>NIP / Identitas</th>
-                    <th>Departemen & Jabatan</th>
                     <th>Role</th>
                     <th>Status</th>
                     <th class="text-center">Aksi</th>
@@ -55,11 +53,6 @@
                             <span class="text-muted" style="font-size: 0.75rem;">Terdaftar: {{ $user->created_at->format('d M Y') }}</span>
                         </td>
                         <td>{{ $user->email }}</td>
-                        <td><code>{{ $user->identity_number ?? '-' }}</code></td>
-                        <td>
-                            <div class="fw-semibold">{{ $user->department ?? '-' }}</div>
-                            <span class="text-muted" style="font-size: 0.75rem;">{{ $user->position ?? '-' }}</span>
-                        </td>
                         <td>
                             <span class="badge {{ $user->role === 'admin' ? 'bg-dark' : 'badge-orange' }}">
                                 {{ ucfirst($user->role) }}

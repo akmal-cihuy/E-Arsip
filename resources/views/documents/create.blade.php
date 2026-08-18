@@ -17,11 +17,11 @@
         @csrf
         <div class="row g-3">
             <div class="col-md-12">
-                <label class="form-label small fw-semibold">Nama File <span class="text-danger">*</span></label>
-                <input type="text" name="name" class="form-control" placeholder="Contoh: Kontrak Kerjasama Vendor" value="{{ old('name') }}" required>
+                <label class="form-label small fw-semibold">Nama File</span></label>
+                <input type="text" name="name" class="form-control" value="{{ old('name') }}" required>
             </div>
             <div class="col-md-4">
-                <label class="form-label small fw-semibold">Kategori <span class="text-danger">*</span></label>
+                <label class="form-label small fw-semibold">Kategori</span></label>
                 <select name="category_id" class="form-select" required>
                     <option value="">Pilih Kategori</option>
                     @foreach($categories as $cat)
@@ -39,7 +39,7 @@
                 </select>
             </div>
             <div class="col-md-4">
-                <label class="form-label small fw-semibold">Status File <span class="text-danger">*</span></label>
+                <label class="form-label small fw-semibold">Status File</span></label>
                 <select name="status" class="form-select" required>
                     <option value="aktif">Aktif</option>
                     <option value="rahasia">Rahasia</option>
@@ -47,11 +47,11 @@
                 </select>
             </div>
             <div class="col-md-6">
-                <label class="form-label small fw-semibold">Tanggal File <span class="text-danger">*</span></label>
+                <label class="form-label small fw-semibold">Tanggal File</label>
                 <input type="date" name="document_date" class="form-control" value="{{ old('document_date', date('Y-m-d')) }}" required>
             </div>
             <div class="col-md-6">
-                <label class="form-label small fw-semibold">Berkas File (PDF, DOCX, XLS, JPG, dll) <span class="text-danger">*</span></label>
+                <label class="form-label small fw-semibold">Berkas File (PDF, DOCX, XLS, JPG, dll)</label>
                 <input type="file" name="file" class="form-control" required>
             </div>
             <div class="col-12">

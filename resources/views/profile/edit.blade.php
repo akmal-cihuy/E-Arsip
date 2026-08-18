@@ -44,15 +44,15 @@
                     </div>
                     <div class="col-md-6">
                         <label class="form-label small fw-semibold">Password Saat Ini</label>
-                        <input type="password" name="current_password" class="form-control" placeholder="••••••••">
+                        <input type="password" name="current_password" class="form-control">
                     </div>
                     <div class="col-md-6">
                         <label class="form-label small fw-semibold">Password Baru</label>
-                        <input type="password" name="new_password" class="form-control" placeholder="••••••••">
+                        <input type="password" name="new_password" class="form-control">
                     </div>
                     <div class="col-md-6">
                         <label class="form-label small fw-semibold">Konfirmasi Password Baru</label>
-                        <input type="password" name="new_password_confirmation" class="form-control" placeholder="••••••••">
+                        <input type="password" name="new_password_confirmation" class="form-control" >
                     </div>
 
                     <div class="col-12 text-end mt-4">

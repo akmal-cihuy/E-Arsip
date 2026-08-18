@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 class ActivityLog extends Model {
-    protected $fillable = ['user_id', 'document_id', 'activity', 'description', 'ip_address', 'user_agent'];
+    protected $fillable = ['user_id', 'document_id', 'activity', 'description', 'user_agent'];
 
     public function user() {
         return $this->belongsTo(User::class);
@@ -21,7 +21,6 @@ class ActivityLog extends Model {
             'document_id' => $documentId,
             'activity' => $activity,
             'description' => $description,
-            'ip_address' => request()->ip(),
             'user_agent' => request()->userAgent(),
         ]);
     }

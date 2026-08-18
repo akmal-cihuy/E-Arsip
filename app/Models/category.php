@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
 class Category extends Model {
-    protected $fillable = ['name', 'slug', 'description'];
+    protected $fillable = ['name', 'description'];
 
     protected static function boot() {
         parent::boot();

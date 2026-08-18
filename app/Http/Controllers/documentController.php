@@ -78,7 +78,7 @@ class DocumentController extends Controller {
             'file_size' => $uploadedFile->getSize(),
         ]);
 
-        ActivityLog::log('Upload Dokumen', "Mengunggah arsip {$doc->name} (#{$doc->document_number})", $doc->id);
+        ActivityLog::log('Upload Dokumen', "Mengunggah arsip {$doc->name}", $doc->id);
 
         return redirect()->route('documents.show', $doc->id)->with('success', 'Dokumen berhasil diunggah.');
     }

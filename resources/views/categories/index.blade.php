@@ -33,11 +33,27 @@
                         <td><span class="badge badge-orange">{{ $cat->documents_count }} File</span></td>
                         <td class="text-center">
                             <button class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#editCatModal{{ $cat->id }}"><i class="bi bi-pencil"></i></button>
-                            <form action="{{ route('categories.destroy', $cat->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Hapus kategori ini?')">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-sm btn-light text-danger"><i class="bi bi-trash"></i></button>
-                            </form>
+                            <button class="btn btn-sm btn-light text-danger" data-bs-toggle="modal" data-bs-target="#deleteModal{{ $cat->id }}" title="Hapus"><i class="bi bi-trash"></i></button>
+
+                        <div class="modal fade" id="deleteModal{{ $cat->id }}" tabindex="-1">
+                                <div class="modal-dialog modal-dialog-centered modal-sm">
+                                    <div class="modal-content">
+                                        <div class="modal-body text-center p-4">
+                                            <i class="bi bi-exclamation-triangle text-danger display-4 mb-3"></i>
+                                                <h6>Hapus kategori?</h6>
+                                                <p class="text-muted small">Kategori <strong>{{ $cat->name }}</strong> akan dihapus permanen.</p>
+                                                    <div class="d-flex justify-content-center gap-2 mt-3">
+                                                        <button type="button" class="btn btn-light btn-sm" data-bs-dismiss="modal">Batal</button>
+                                                            <form action="{{ route('categories.destroy', $cat->id) }}" method="POST">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit" class="btn btn-danger btn-sm">Ya, Hapus</button>
+                                                            </form>
+                                                    </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
 
                             <!-- Modal Edit Kategori -->
                             <div class="modal fade" id="editCatModal{{ $cat->id }}" tabindex="-1">

@@ -12,7 +12,6 @@
                 <span class="badge bg-secondary">{{ ucfirst($document->status) }}</span>
             </div>
             <h4 class="fw-bold mb-1">{{ $document->name }}</h4>
-            <p class="text-muted small mb-3">Nomor: <strong>{{ $document->document_number }}</strong></p>
 
             <table class="table table-sm small">
                 <tr><th class="text-muted">Kategori</th><td>{{ $document->category->name }}</td></tr>

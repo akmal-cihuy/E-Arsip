@@ -66,7 +66,6 @@ class DatabaseSeeder extends Seeder {
                 'folder_id' => $folderModels[$i % 5]->id,
                 'user_id' => ($i % 2 === 0) ? $admin->id : $petugas->id,
                 'name' => 'Dokumen Pengarsipan Contoh ' . $i,
-                'document_number' => 'DOC/' . date('Y') . '/00' . $i,
                 'file_name' => "dokumen_arsip_{$i}.pdf",
                 'file_path' => 'documents/sample_document.pdf',
                 'file_type' => 'pdf',

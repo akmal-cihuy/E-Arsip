@@ -28,7 +28,7 @@
             </select>
         </div>
         <div class="col-md-3 d-flex gap-2">
-            <button type="submit" class="btn btn-orange btn-sm w-100"><i class="bi bi-filter"></i> Filter</button>
+            <button type="submit" class="btn btn-orange btn-sm w-100"><i class="bi bi-filter"></i> cari</button>
             <a href="{{ route('documents.index') }}" class="btn btn-light btn-sm"><i class="bi bi-arrow-counterclockwise"></i></a>
         </div>
     </form>

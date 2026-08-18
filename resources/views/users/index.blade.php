@@ -26,10 +26,11 @@
                 <option value="petugas" {{ request('role') == 'petugas' ? 'selected' : '' }}>Petugas</option>
             </select>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-3 d-flex gap-2">
             <button type="submit" class="btn btn-orange btn-sm w-100">
-                <i class="bi bi-filter me-1"></i> Filter
+                <i class="bi bi-filter me-1"></i> cari
             </button>
+            <a href="{{ route('users.index') }}" class="btn btn-light btn-sm"><i class="bi bi-arrow-counterclockwise"></i></a>
         </div>
     </form>
 

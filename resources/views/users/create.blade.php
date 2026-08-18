@@ -17,22 +17,22 @@
         @csrf
         <div class="row g-3">
             <div class="col-md-6">
-                <label class="form-label small fw-semibold">Nama Lengkap <span class="text-danger">*</span></label>
+                <label class="form-label small fw-semibold">Nama Lengkap</label>
                 <input type="text" name="name" class="form-control" value="{{ old('name') }}" required>
             </div>
             <div class="col-md-6">
-                <label class="form-label small fw-semibold">Email <span class="text-danger">*</span></label>
+                <label class="form-label small fw-semibold">Email </label>
                 <input type="email" name="email" class="form-control" value="{{ old('email') }}" required>
             </div>
             <div class="col-md-6">
-                <label class="form-label small fw-semibold">Role Pengguna <span class="text-danger">*</span></label>
+                <label class="form-label small fw-semibold">Role Pengguna </label>
                 <select name="role" class="form-select" required>
                     <option value="petugas">Petugas</option>
                     <option value="admin">Admin</option>
                 </select>
             </div>
             <div class="col-md-6">
-                <label class="form-label small fw-semibold">Password Sementara <span class="text-danger">*</span></label>
+                <label class="form-label small fw-semibold">Password </label>
                 <input type="password" name="password" class="form-control" required>
             </div>
             <div class="col-12 text-end mt-4">

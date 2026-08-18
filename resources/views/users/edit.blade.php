@@ -33,8 +33,8 @@
                 </select>
             </div>
             <div class="col-md-6">
-                <label class="form-label small fw-semibold">Reset Password (Kosongkan jika tidak diganti)</label>
-                <input type="password" name="password" class="form-control" placeholder="••••••••">
+                <label class="form-label small fw-semibold">Reset Password <i>(Kosongkan jika tidak diganti)</i> </label>
+                <input type="password" name="password" class="form-control">
             </div>
             <div class="col-12 text-end mt-4">
                 <a href="{{ route('users.index') }}" class="btn btn-light me-2">Batal</a>

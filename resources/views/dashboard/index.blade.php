@@ -65,24 +65,6 @@
     </div>
 </div>
 
-<!-- Chart Visualizations -->
-{{-- <div class="row g-4 mb-4">
-    <div class="col-lg-8">
-        <div class="card card-custom p-4 h-100">
-            <h6 class="fw-bold mb-3">Statistik Upload Dokumen (Tahun {{ date('Y') }})</h6>
-            <canvas id="monthlyDocsChart" height="130"></canvas>
-        </div>
-    </div>
-    <div class="col-lg-4">
-        <div class="card card-custom p-4 h-100">
-            <h6 class="fw-bold mb-3">Proporsi per Kategori</h6>
-            <div style="position: relative; height: 230px;">
-                <canvas id="categoryDoughnutChart"></canvas>
-            </div>
-        </div>
-    </div>
-</div> --}}
-
 <!-- Recent Documents & Activities -->
 <div class="row g-4">
     <div class="col-lg-7">

@@ -21,13 +21,13 @@
             </select>
         </div>
         <div class="col-md-3">
-            <input type="text" name="activity" class="form-control form-control-sm" placeholder="Jenis aktivitas (e.g. Upload, Download)" value="{{ request('activity') }}">
+            <input type="text" name="activity" class="form-control form-control-sm" placeholder="Jenis aktivitas " value="{{ request('activity') }}">
         </div>
         <div class="col-md-3">
             <input type="date" name="date" class="form-control form-control-sm" value="{{ request('date') }}">
         </div>
         <div class="col-md-3 d-flex gap-2">
-            <button type="submit" class="btn btn-orange btn-sm w-100"><i class="bi bi-filter"></i> Saring</button>
+            <button type="submit" class="btn btn-orange btn-sm w-100"><i class="bi bi-filter"></i> Cari</button>
             <a href="{{ route('activities.index') }}" class="btn btn-light btn-sm"><i class="bi bi-arrow-counterclockwise"></i></a>
         </div>
     </form>

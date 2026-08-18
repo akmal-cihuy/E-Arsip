@@ -29,15 +29,32 @@
                                     </button>
                                 </li>
                                 <li>
-                                    <form action="{{ route('folders.destroy', $folder->id) }}" method="POST" onsubmit="return confirm('Hapus folder ini?')">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="dropdown-item small text-danger"><i class="bi bi-trash me-2"></i> Hapus</button>
-                                    </form>
+                                    <button class="dropdown-item small" data-bs-toggle="modal" data-bs-target="#deleteModal{{ $folder->id }}" title="Hapus"><i class="bi bi-trash text-danger"></i>  hapus</button>
                                 </li>
                             </ul>
                         </div>
                     </div>
+                    
+                    <div class="modal fade" id="deleteModal{{ $folder->id }}" tabindex="-1">
+                                <div class="modal-dialog modal-dialog-centered modal-sm">
+                                    <div class="modal-content">
+                                        <div class="modal-body text-center p-4">
+                                            <i class="bi bi-exclamation-triangle text-danger display-4 mb-3"></i>
+                                                <h6>Hapus folder?</h6>
+                                                <p class="text-muted small">Folder <strong>{{ $folder->name }}</strong> akan dihapus permanen.</p>
+                                                    <div class="d-flex justify-content-center gap-2 mt-3">
+                                                        <button type="button" class="btn btn-light btn-sm" data-bs-dismiss="modal">Batal</button>
+                                                            <form action="{{ route('folders.destroy', $folder->id) }}" method="POST">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit" class="btn btn-danger btn-sm">Ya, Hapus</button>
+                                                            </form>
+                                                    </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+
                     <a href="{{ route('folders.show', $folder->id) }}" class="fw-bold text-dark text-decoration-none text-truncate d-block mb-1">
                         {{ $folder->name }}
                     </a>

@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class ActivityLogController extends Controller {
     public function index(Request $request) {
-        $query = ActivityLog::with(['user', 'document']);
+        $query = ActivityLog::with(['user', 'file']);
 
         if ($request->filled('user_id')) {
             $query->where('user_id', $request->user_id);

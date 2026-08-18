@@ -4,16 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\ActivityLog;
 use App\Models\Category;
-use App\Models\Document;
+use App\Models\file;
 use App\Models\Folder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
-class DocumentController extends Controller {
+class fileController extends Controller {
     public function index(Request $request) {
-        $query = Document::with(['category', 'folder', 'user']);
+        $query = File::with(['category', 'folder', 'user']);
 
         if ($request->filled('search')) {
             $search = $request->search;
@@ -32,20 +32,20 @@ class DocumentController extends Controller {
         }
 
         if ($request->filled('date_start') && $request->filled('date_end')) {
-            $query->whereBetween('document_date', [$request->date_start, $request->date_end]);
+            $query->whereBetween('file_date', [$request->date_start, $request->date_end]);
         }
 
-        $documents = $query->latest()->paginate(10)->withQueryString();
+        $files = $query->latest()->paginate(10)->withQueryString();
         $categories = Category::all();
         $folders = Folder::all();
 
-        return view('documents.index', compact('documents', 'categories', 'folders'));
+        return view('files.index', compact('files', 'categories', 'folders'));
     }
 
     public function create() {
         $categories = Category::all();
         $folders = Folder::all();
-        return view('documents.create', compact('categories', 'folders'));
+        return view('files.create', compact('categories', 'folders'));
     }
 
     public function store(Request $request) {
@@ -53,7 +53,7 @@ class DocumentController extends Controller {
             'name' => 'required|string|max:255',
             'category_id' => 'required|exists:categories,id',
             'folder_id' => 'nullable|exists:folders,id',
-            'document_date' => 'required|date',
+            'file_date' => 'required|date',
             'description' => 'nullable|string',
             'status' => 'required|in:aktif,rahasia,arsip_lama',
             'file' => 'required|file|mimes:pdf,doc,docx,xls,xlsx,ppt,pptx,jpg,jpeg,png,zip|max:20480', // Max 20MB
@@ -62,14 +62,14 @@ class DocumentController extends Controller {
         $uploadedFile = $request->file('file');
         $extension = $uploadedFile->getClientOriginalExtension();
         $fileName = time() . '_' . Str::slug(pathinfo($uploadedFile->getClientOriginalName(), PATHINFO_FILENAME)) . '.' . $extension;
-        $filePath = $uploadedFile->storeAs('documents', $fileName, 'public');
+        $filePath = $uploadedFile->storeAs('files', $fileName, 'public');
 
-        $doc = Document::create([
+        $file = File::create([
             'name' => $request->name,
             'category_id' => $request->category_id,
             'folder_id' => $request->folder_id,
             'user_id' => Auth::id(),
-            'document_date' => $request->document_date,
+            'file_date' => $request->file_date,
             'description' => $request->description,
             'status' => $request->status,
             'file_name' => $uploadedFile->getClientOriginalName(),
@@ -78,46 +78,46 @@ class DocumentController extends Controller {
             'file_size' => $uploadedFile->getSize(),
         ]);
 
-        ActivityLog::log('Upload Dokumen', "Mengunggah arsip {$doc->name}", $doc->id);
+        ActivityLog::log('Upload File', "Mengunggah file {$file->name}", $file->id);
 
-        return redirect()->route('documents.show', $doc->id)->with('success', 'Dokumen berhasil diunggah.');
+        return redirect()->route('files.show', $file->id)->with('success', 'File berhasil diunggah.');
     }
 
-    public function show(Document $document) {
-        $document->load(['category', 'folder', 'user', 'activityLogs.user']);
-        return view('documents.show', compact('document'));
+    public function show(File $file) {
+        $file->load(['category', 'folder', 'user', 'activityLogs.user']);
+        return view('files.show', compact('file'));
     }
 
-    public function download(Document $document) {
-        if (!Storage::disk('public')->exists($document->file_path)) {
+    public function download(File $file) {
+        if (!Storage::disk('public')->exists($file->file_path)) {
             abort(404, 'File fisik tidak ditemukan pada server.');
         }
 
-        $document->increment('download_count');
-        ActivityLog::log('Download Dokumen', "Mengunduh file {$document->name}", $document->id);
+        $file->increment('download_count');
+        ActivityLog::log('Download File', "Mengunduh file {$file->name}", $file->id);
 
-        return Storage::disk('public')->download($document->file_path, $document->file_name);
+        return Storage::disk('public')->download($file->file_path, $file->file_name);
     }
 
-    public function preview(Document $document) {
-        if (!in_array(strtolower($document->file_type), ['pdf', 'jpg', 'jpeg', 'png'])) {
+    public function preview(File $file) {
+        if (!in_array(strtolower($file->file_type), ['pdf', 'jpg', 'jpeg', 'png'])) {
             return back()->with('error', 'Format file tidak mendukung pratinjau langsung.');
         }
 
-        $path = Storage::disk('public')->path($document->file_path);
+        $path = Storage::disk('public')->path($file->file_path);
         return response()->file($path);
     }
 
-    public function destroy(Document $document) {
-        if (Storage::disk('public')->exists($document->file_path)) {
-            Storage::disk('public')->delete($document->file_path);
+    public function destroy(File $file) {
+        if (Storage::disk('public')->exists($file->file_path)) {
+            Storage::disk('public')->delete($file->file_path);
         }
 
-        $name = $document->name;
-        $document->delete();
+        $name = $file->name;
+        $file->delete();
 
-        ActivityLog::log('Hapus Dokumen', "Menghapus dokumen {$name}");
+        ActivityLog::log('Hapus File', "Menghapus file {$name}");
 
-        return redirect()->route('documents.index')->with('success', 'Dokumen berhasil dihapus.');
+        return redirect()->route('files.index')->with('success', 'File berhasil dihapus.');
     }
 }

@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class FolderController extends Controller {
     public function index() {
-        $folders = Folder::withCount('documents')
+        $folders = Folder::withCount('files')
             ->whereNull('parent_id')
             ->with('subfolders')
             ->latest()
@@ -39,12 +39,12 @@ class FolderController extends Controller {
     }
 
     public function show(Folder $folder) {
-        $folder->load(['subfolders.documents', 'documents.category', 'documents.user', 'parent']);
-        $subfolders = $folder->subfolders()->withCount('documents')->get();
-        $documents = $folder->documents()->with(['category', 'user'])->latest()->paginate(10);
+        $folder->load(['subfolders.files', 'files.category', 'files.user', 'parent']);
+        $subfolders = $folder->subfolders()->withCount('files')->get();
+        $files = $folder->files()->with(['category', 'user'])->latest()->paginate(10);
         $allFolders = Folder::where('id', '!=', $folder->id)->get();
 
-        return view('folders.show', compact('folder', 'subfolders', 'documents', 'allFolders'));
+        return view('folders.show', compact('folder', 'subfolders', 'files', 'allFolders'));
     }
 
     public function update(Request $request, Folder $folder) {

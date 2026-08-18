@@ -4,25 +4,25 @@ namespace App\Http\Controllers;
 
 use App\Models\ActivityLog;
 use App\Models\Category;
-use App\Models\Document;
+use App\Models\file;
 use App\Models\Folder;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller {
     public function index() {
-        $totalDocs = Document::count();
+        $totalFiles = File::count();
         $totalFolders = Folder::count();
         $totalCategories = Category::count();
         $totalUsers = User::count();
-        $totalStorageBytes = Document::sum('file_size');
+        $totalStorageBytes = File::sum('file_size');
 
         $formattedStorage = $this->formatBytes($totalStorageBytes);
-        $recentDocs = Document::with(['category', 'user'])->latest()->take(5)->get();
+        $recentFiles = File::with(['category', 'user'])->latest()->take(5)->get();
         $recentActivities = ActivityLog::with('user')->latest()->take(6)->get();
 
-        // 1. Data Dokumen per Bulan (Tahun Berjalan)
-        $monthlyDocs = Document::select(
+        // 1. Data File per Bulan (Tahun Berjalan)
+        $monthlyFiles = File::select(
             DB::raw('MONTH(created_at) as month'),
             DB::raw('COUNT(*) as count')
         )
@@ -32,17 +32,17 @@ class DashboardController extends Controller {
 
         $chartMonthlyData = [];
         for ($m = 1; $m <= 12; $m++) {
-            $chartMonthlyData[] = $monthlyDocs[$m] ?? 0;
+            $chartMonthlyData[] = $monthlyFiles[$m] ?? 0;
         }
 
-        // 2. Data Dokumen per Kategori
-        $categoryData = Category::withCount('documents')->get();
+        // 2. Data File per Kategori
+        $categoryData = Category::withCount('files')->get();
         $chartCategoryLabels = $categoryData->pluck('name')->toArray();
-        $chartCategoryData = $categoryData->pluck('documents_count')->toArray();
+        $chartCategoryData = $categoryData->pluck('files_count')->toArray();
 
         return view('dashboard.index', compact(
-            'totalDocs', 'totalFolders', 'totalCategories', 'totalUsers', 'formattedStorage',
-            'recentDocs', 'recentActivities', 'chartMonthlyData', 'chartCategoryLabels', 'chartCategoryData'
+            'totalFiles', 'totalFolders', 'totalCategories', 'totalUsers', 'formattedStorage',
+            'recentFiles', 'recentActivities', 'chartMonthlyData', 'chartCategoryLabels', 'chartCategoryData'
         ));
     }
 

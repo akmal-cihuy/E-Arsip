@@ -10,7 +10,7 @@ use Illuminate\Validation\Rules\Password;
 
 class UserController extends Controller {
     public function index(Request $request) {
-        $query = User::withCount('documents');
+        $query = User::withCount('files');
 
         if ($request->filled('search')) {
             $search = $request->search;

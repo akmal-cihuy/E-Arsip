@@ -20,7 +20,7 @@
             <span class="text-muted small">{{ $folder->description ?? 'Tidak ada deskripsi' }}</span>
         </div>
         <div class="d-flex gap-2">
-            <a href="{{ route('documents.create') }}?folder_id={{ $folder->id }}" class="btn btn-orange btn-sm">
+            <a href="{{ route('files.create') }}?folder_id={{ $folder->id }}" class="btn btn-orange btn-sm">
                 <i class="bi bi-cloud-arrow-up me-1"></i> Upload ke Folder Ini
             </a>
         </div>
@@ -37,16 +37,16 @@
                             <i class="bi bi-folder-fill text-warning fs-4"></i>
                             <span class="text-truncate">{{ $sub->name }}</span>
                         </a>
-                        <span class="text-muted small mt-2">{{ $sub->documents_count }} File</span>
+                        <span class="text-muted small mt-2">{{ $sub->files_count }} File</span>
                     </div>
                 </div>
             @endforeach
         </div>
     @endif
 
-    <!-- Documents Inside Folder -->
+    <!-- Files Inside Folder -->
     <h6 class="fw-bold text-muted small text-uppercase mb-3">Berkas File</h6>
-    @if($documents->count() > 0)
+    @if($files->count() > 0)
         <div class="table-responsive">
             <table class="table table-hover align-middle mb-3 small">
                 <thead class="table-light">
@@ -59,22 +59,22 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($documents as $doc)
+                    @foreach($files as $file)
                         <tr>
-                            <td class="fw-semibold">{{ $doc->name }}</td>
-                            <td><span class="badge badge-orange">{{ $doc->category->name }}</span></td>
-                            <td>{{ $doc->formatted_size }}</td>
-                            <td>{{ $doc->user->name }}</td>
+                            <td class="fw-semibold">{{ $file->name }}</td>
+                            <td><span class="badge badge-orange">{{ $file->category->name }}</span></td>
+                            <td>{{ $file->formatted_size }}</td>
+                            <td>{{ $file->user->name }}</td>
                             <td>
-                                <a href="{{ route('documents.show', $doc->id) }}" class="btn btn-sm btn-light"><i class="bi bi-eye"></i></a>
-                                <a href="{{ route('documents.download', $doc->id) }}" class="btn btn-sm btn-light"><i class="bi bi-download"></i></a>
+                                <a href="{{ route('files.show', $file->id) }}" class="btn btn-sm btn-light"><i class="bi bi-eye"></i></a>
+                                <a href="{{ route('files.download', $file->id) }}" class="btn btn-sm btn-light"><i class="bi bi-download"></i></a>
                             </td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
         </div>
-        {{ $documents->links('pagination::bootstrap-5') }}
+        {{ $files->links('pagination::bootstrap-5') }}
     @else
         <div class="text-center py-4 text-muted small">
             <i class="bi bi-inbox fs-2 mb-2"></i>

@@ -8,7 +8,7 @@
         <p class="text-muted small mb-0">Pantau seluruh penyimpanan dan aktivitas secara langsung.</p>
     </div>
     <div class="d-flex gap-2">
-        <a href="{{ route('documents.create') }}" class="btn btn-orange btn-sm">
+        <a href="{{ route('files.create') }}" class="btn btn-orange btn-sm">
             <i class="bi bi-cloud-arrow-up me-1"></i> Upload File
         </a>
         <a href="{{ route('folders.index') }}" class="btn btn-outline-orange btn-sm">
@@ -24,7 +24,7 @@
             <div class="d-flex justify-content-between align-items-center">
                 <div>
                     <span class="text-muted small fw-semibold">Total File</span>
-                    <h3 class="fw-bold mt-1 mb-0">{{ number_format($totalDocs) }}</h3>
+                    <h3 class="fw-bold mt-1 mb-0">{{ number_format($totalFiles) }}</h3>
                 </div>
                 <div class="stat-icon-box"><i class="bi bi-file-earmark-text"></i></div>
             </div>
@@ -65,13 +65,13 @@
     </div>
 </div>
 
-<!-- Recent Documents & Activities -->
+<!-- Recent Files & Activities -->
 <div class="row g-4">
     <div class="col-lg-7">
         <div class="card card-custom p-4">
             <div class="d-flex justify-content-between align-items-center mb-3">
                 <h6 class="fw-bold mb-0">File Terbaru</h6>
-                <a href="{{ route('documents.index') }}" class="small text-decoration-none fw-semibold" style="color: var(--primary-orange);">Lihat Semua</a>
+                <a href="{{ route('files.index') }}" class="small text-decoration-none fw-semibold" style="color: var(--primary-orange);">Lihat Semua</a>
             </div>
             <div class="table-responsive">
                 <table class="table table-hover align-middle mb-0">
@@ -84,17 +84,17 @@
                         </tr>
                     </thead>
                     <tbody class="small">
-                        @forelse($recentDocs as $doc)
+                        @forelse($recentFiles as $file)
                             <tr>
                                 <td>
-                                    <div class="fw-semibold">{{ $doc->name }}</div>
+                                    <div class="fw-semibold">{{ $file->name }}</div>
                                     
                                 </td>
-                                <td><span class="badge badge-orange">{{ $doc->category->name }}</span></td>
-                                <td>{{ $doc->formatted_size }}</td>
+                                <td><span class="badge badge-orange">{{ $file->category->name }}</span></td>
+                                <td>{{ $file->formatted_size }}</td>
                                 <td>
-                                    <a href="{{ route('documents.show', $doc->id) }}" class="btn btn-sm btn-light"><i class="bi bi-eye"></i></a>
-                                    <a href="{{ route('documents.download', $doc->id) }}" class="btn btn-sm btn-light"><i class="bi bi-download"></i></a>
+                                    <a href="{{ route('files.show', $file->id) }}" class="btn btn-sm btn-light"><i class="bi bi-eye"></i></a>
+                                    <a href="{{ route('files.download', $file->id) }}" class="btn btn-sm btn-light"><i class="bi bi-download"></i></a>
                                 </td>
                             </tr>
                         @empty

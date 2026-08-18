@@ -16,7 +16,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="{{ route('documents.index') }}" class="nav-link {{ request()->routeIs('documents.*') ? 'active' : '' }}">
+            <a href="{{ route('files.index') }}" class="nav-link {{ request()->routeIs('files.*') ? 'active' : '' }}">
                 <i class="bi bi-file-earmark-text-fill"></i>
                 <span>File</span>
             </a>
@@ -28,7 +28,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="{{ route('documents.create') }}" class="nav-link">
+            <a href="{{ route('files.create') }}" class="nav-link">
                 <i class="bi bi-cloud-arrow-up-fill"></i>
                 <span>Upload File</span>
             </a>

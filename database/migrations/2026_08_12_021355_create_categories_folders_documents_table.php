@@ -23,7 +23,7 @@ return new class extends Migration {
             $table->timestamps();
         });
 
-        Schema::create('documents', function (Blueprint $table) {
+        Schema::create('files', function (Blueprint $table) {
             $table->id();
             $table->foreignId('category_id')->constrained('categories')->cascadeOnDelete();
             $table->foreignId('folder_id')->nullable()->constrained('folders')->nullOnDelete();
@@ -33,7 +33,7 @@ return new class extends Migration {
             $table->string('file_path');
             $table->string('file_type', 10);
             $table->unsignedBigInteger('file_size'); // Dalam bytes
-            $table->date('document_date');
+            $table->date('file_date');
             $table->text('description')->nullable();
             $table->enum('status', ['aktif', 'rahasia', 'arsip_lama'])->default('aktif');
             $table->unsignedInteger('download_count')->default(0);
@@ -43,7 +43,7 @@ return new class extends Migration {
         Schema::create('activity_logs', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
-            $table->foreignId('document_id')->nullable()->constrained('documents')->nullOnDelete();
+            $table->foreignId('file_id')->nullable()->constrained('files')->nullOnDelete();
             $table->string('activity');
             $table->text('description')->nullable();
             $table->string('ip_address', 45)->nullable();
@@ -54,7 +54,7 @@ return new class extends Migration {
 
     public function down(): void {
         Schema::dropIfExists('activity_logs');
-        Schema::dropIfExists('documents');
+        Schema::dropIfExists('files');
         Schema::dropIfExists('folders');
         Schema::dropIfExists('categories');
     }

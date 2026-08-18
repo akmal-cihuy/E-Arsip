@@ -22,8 +22,8 @@ class User extends Authenticatable {
         ];
     }
 
-    public function documents() {
-        return $this->hasMany(Document::class);
+    public function files() {
+        return $this->hasMany(File::class);
     }
 
     public function folders() {

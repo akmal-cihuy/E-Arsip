@@ -50,8 +50,8 @@
                         <td><span class="badge badge-orange">{{ $log->activity }}</span></td>
                         <td>
                             <div>{{ $log->description ?? '-' }}</div>
-                            @if($log->document)
-                                <a href="{{ route('documents.show', $log->document->id) }}" class="text-decoration-none small text-primary">Lihat Terkait</a>
+                            @if($log->file)
+                                <a href="{{ route('files.show', $log->file->id) }}" class="text-decoration-none small text-primary">Lihat Terkait</a>
                             @endif
                         </td>
                     </tr>

@@ -30,7 +30,7 @@
                         <td>{{ $categories->firstItem() + $idx }}</td>
                         <td class="fw-bold">{{ $cat->name }}</td>
                         <td>{{ $cat->description ?? '-' }}</td>
-                        <td><span class="badge badge-orange">{{ $cat->documents_count }} File</span></td>
+                        <td><span class="badge badge-orange">{{ $cat->files_count }} File</span></td>
                         <td class="text-center">
                             <button class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#editCatModal{{ $cat->id }}"><i class="bi bi-pencil"></i></button>
                             <button class="btn btn-sm btn-light text-danger" data-bs-toggle="modal" data-bs-target="#deleteModal{{ $cat->id }}" title="Hapus"><i class="bi bi-trash"></i></button>

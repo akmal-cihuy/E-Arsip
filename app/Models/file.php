@@ -4,15 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Document extends Model {
+class File extends Model {
     protected $fillable = [
         'category_id', 'folder_id', 'user_id', 'name',
-        'file_name', 'file_path', 'file_type', 'file_size', 'document_date',
+        'file_name', 'file_path', 'file_type', 'file_size', 'file_date',
         'description', 'status', 'download_count'
     ];
 
     protected $casts = [
-        'document_date' => 'date',
+        'file_date' => 'date',
     ];
 
     public function user() {

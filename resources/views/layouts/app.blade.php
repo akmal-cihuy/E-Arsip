@@ -201,7 +201,7 @@
         </div>
 
         <footer class="bg-white border-top py-3 text-center text-muted small">
-            &copy; 2026 E-Arsip &bull; proyek siswa PKL SMK Mahaputra Cerdas Utama
+            &copy; 2026 E-Arsip &bull; proyek siswa PKL SMK Mahaputra Cerdas Utama.
         </footer>
     </div>
 
@@ -209,8 +209,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        document.getElementById('sidebarToggle')?.addEventListener('click', function() {
-            document.getElementById('sidebar').classList.toggle('active');
+        file.getElementById('sidebarToggle')?.addEventListener('click', function() {
+            file.getElementById('sidebar').classList.toggle('active');
         });
     </script>
     @stack('scripts')

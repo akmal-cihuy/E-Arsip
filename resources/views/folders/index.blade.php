@@ -60,7 +60,7 @@
                     </a>
                     <p class="text-muted small mb-2 text-truncate">{{ $folder->description ?? 'Tidak ada deskripsi' }}</p>
                     <div class="d-flex justify-content-between align-items-center mt-auto pt-2 border-top small text-muted">
-                        <span><i class="bi bi-file-earmark me-1"></i> {{ $folder->documents_count }} File</span>
+                        <span><i class="bi bi-file-earmark me-1"></i> {{ $folder->files_count }} File</span>
                         <span><i class="bi bi-folder2-open me-1"></i> {{ $folder->subfolders->count() }} Sub</span>
                     </div>
                 </div>

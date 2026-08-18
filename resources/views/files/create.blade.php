@@ -13,7 +13,7 @@
         </div>
     @endif
 
-    <form action="{{ route('documents.store') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('files.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="row g-3">
             <div class="col-md-12">
@@ -48,7 +48,7 @@
             </div>
             <div class="col-md-6">
                 <label class="form-label small fw-semibold">Tanggal File</label>
-                <input type="date" name="document_date" class="form-control" value="{{ old('document_date', date('Y-m-d')) }}" required>
+                <input type="date" name="file_date" class="form-control" value="{{ old('file_date', date('Y-m-d')) }}" required>
             </div>
             <div class="col-md-6">
                 <label class="form-label small fw-semibold">Berkas File (PDF, DOCX, XLS, JPG, dll)</label>
@@ -59,7 +59,7 @@
                 <textarea name="description" class="form-control" rows="3" placeholder="Tuliskan catatan atau keterangan ringkas...">{{ old('description') }}</textarea>
             </div>
             <div class="col-12 mt-4 text-end">
-                <a href="{{ route('documents.index') }}" class="btn btn-light me-2">Batal</a>
+                <a href="{{ route('files.index') }}" class="btn btn-light me-2">Batal</a>
                 <button type="submit" class="btn btn-orange">Simpan File</button>
             </div>
         </div>

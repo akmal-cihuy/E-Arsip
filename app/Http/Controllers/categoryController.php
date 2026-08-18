@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 
 class CategoryController extends Controller {
     public function index() {
-        $categories = Category::withCount('documents')->latest()->paginate(10);
+        $categories = Category::withCount('files')->latest()->paginate(10);
         return view('categories.index', compact('categories'));
     }
 
@@ -46,8 +46,8 @@ class CategoryController extends Controller {
     }
 
     public function destroy(Category $category) {
-        if ($category->documents()->count() > 0) {
-            return back()->with('error', 'Kategori tidak dapat dihapus karena masih memiliki dokumen terkait.');
+        if ($category->files()->count() > 0) {
+            return back()->with('error', 'Kategori tidak dapat dihapus karena masih memiliki file terkait.');
         }
 
         $name = $category->name;
